@@ -52,14 +52,14 @@ pipeline {
                 }
             }
         }
+        stage('deploy') {
+            steps {
+                script {
+                    echo 'deploying docker image...'
+                }
+            }
+        }
     }
-        // stage('deploy') {
-        //     steps {
-        //         script {
-        //             echo 'deploying docker image...'
-        //         }
-        //     }
-        // }
         // stage('commit version update'){
         //     steps {
         //         script {
