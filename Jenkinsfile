@@ -61,21 +61,22 @@ pipeline {
                 }
             }
         }
-        // stage('commit version update') {
-        //     steps {
-        //         script {
-        //             withCredentials([usernamePassword(credentialsId: 'gitlab-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-        //                 sh 'git config --global user.email "jenkins@example.com"'
-        //                 sh 'git config --global user.name "jenkins"'
+        stage('commit version update') {
+            steps {
+                script {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'GitHub-asfucuhara-secretekey', keyFileVariable: 'KEY')]){
+                        sh 'git config --global user.email "jenkins@example.com"'
+                        sh 'git config --global user.name "jenkins"'
+                        sh 'GIT_SSH_COMMAND = "ssh -i $key"'
                         
-        //                 sh 'git remote set-url origin https://${USER}:${PASS}'
-        //                 sh 'git add .'
-        //                 sh 'git commit -m "ci: version bump"'
-        //                 sh 'git push origin HEAD:jenkins-jobs'
-        //             }
-        //         }
-        //     }
-        // }
+                        sh 'git remote set-url origin https://github.com/asFucuhara/Jenkins-pipeline.git'
+                        sh 'git add .'
+                        sh 'git commit -m "ci: version bump"'
+                        sh 'git push origin HEAD:jenkins-jobs'
+                    }
+                }
+            }
+        }
         // stage('commit version update'){
         //     steps {
         //         script {
