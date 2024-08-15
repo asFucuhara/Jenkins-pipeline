@@ -67,7 +67,7 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: 'GitHub-asfucuhara-secretekey', keyFileVariable: 'KEY')]){
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
-                        sh 'GIT_SSH_COMMAND="ssh -i $key"'
+                        sh "ssh-agent bash -c 'ssh-add ${KEY}'"
                          
                         sh 'git remote set-url origin git@github.com:asFucuhara/Jenkins-pipeline.git'
                         sh 'git add .'
