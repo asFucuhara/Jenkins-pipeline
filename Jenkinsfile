@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {// <-- from shared library
                     dockerLogin()
-                    buildImage 'asfucu/demo-app:${IMAGE_NAME} .'   
+                    buildImage 'asfucu/demo-app:${IMAGE_NAME}'
                     dockerPush 'asfucu/demo-app:${IMAGE_NAME}'
                 }
             }
