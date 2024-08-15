@@ -1,3 +1,6 @@
+#!/user/bin/env groovy
+
+@Library('jenkins-shared-library')
 def gv
 
 pipeline {
@@ -36,7 +39,7 @@ pipeline {
             }
             steps {
                 script {
-                    gv.buildJar()
+                    gv.buildJar() // <-- from local script
                 }
             }
         }
@@ -48,7 +51,7 @@ pipeline {
             }
             steps {
                 script {
-                    gv.buildImage()
+                    buildJar()// <-- from shared library
                 }
             }
         }
