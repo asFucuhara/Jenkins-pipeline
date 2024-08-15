@@ -51,7 +51,7 @@ pipeline {
             // }
             steps {
                 script {
-                    buildJar()// <-- from shared library
+                    buildImage()// <-- from shared library
                 }
             }
         }
