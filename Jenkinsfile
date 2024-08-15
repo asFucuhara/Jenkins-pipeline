@@ -39,11 +39,11 @@ pipeline {
         //     }
         // }
         stage('build app') {
-            when {
-                expression {
-                    BRANCH_NAME == "master"
-                }
-            }
+            // when {
+            //     expression {
+            //         BRANCH_NAME == "master"
+            //     }
+            // }
             steps {
                 script {
                     gv.buildJar() // <-- from local script
