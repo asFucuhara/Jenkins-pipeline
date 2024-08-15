@@ -12,7 +12,7 @@ pipeline {
         stage('Initiation...') {
             steps {
                 script {
-                    echo 'Executing pipeline for branch $BRANCH_NAME'
+                    echo "Executing pipeline for branch $BRANCH_NAME"
                     echo 'Loading scripts...'
                     gv = load "script.groovy"
                 }
@@ -50,8 +50,10 @@ pipeline {
             //     }
             // }
             steps {
-                script {
-                    buildImage()// <-- from shared library
+                script {// <-- from shared library
+                    dockerLogin()
+                    buildImage 'asfucu/demo-app:jma-2.1'   
+                    dockerPush 'asfucu/demo-app:jma-2.1'
                 }
             }
         }
