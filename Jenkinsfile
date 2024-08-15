@@ -19,7 +19,7 @@ pipeline {
         stage('Initiation...') {
             steps {
                 script {
-                    echo "Executing pipeline for branch $BRANCH_NAME"
+                    echo "Executing pipeline for branch $GIT_BRANCH"
                     echo 'Loading scripts...'
                     gv = load "script.groovy"
                 }
@@ -41,7 +41,7 @@ pipeline {
         stage('build app') {
             // when {
             //     expression {
-            //         BRANCH_NAME == "master"
+            //         GIT_BRANCH == "master"
             //     }
             // }
             steps {
@@ -53,7 +53,7 @@ pipeline {
         stage('build image') {
             // when {
             //     expression {
-            //         BRANCH_NAME == "master"
+            //         GIT_BRANCH == "master"
             //     }
             // }
             steps {
