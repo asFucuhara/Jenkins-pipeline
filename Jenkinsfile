@@ -1,11 +1,12 @@
 #!/user/bin/env groovy
 
-library identifier: 'jenkins-shared-library@master' , retriever modernSCM(
-    [
+library(
+    identifier: 'jenkins-shared-library@master',
+    retriever: modernSCM([
         $class: 'GitSCMSource',
         remote: 'git@github.com:asFucuhara/jenkins-shared-library.git',
         credentialsId: 'GitHub-asfucuhara-secretekey'
-    ]
+    ])
 )
 def gv
 
