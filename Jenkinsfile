@@ -68,8 +68,8 @@ pipeline {
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
                         sh 'GIT_SSH_COMMAND="ssh -i $key"'
-                        
-                        sh 'git remote set-url origin https://github.com/asFucuhara/Jenkins-pipeline.git'
+                         
+                        sh 'git remote set-url origin git@github.com:asFucuhara/Jenkins-pipeline.git'
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git push origin HEAD:jenkins-jobs'
